@@ -1,0 +1,23 @@
+trigger:
+  branches:
+    include:
+    - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+- group: AccessTokens
+- group: ServiceConnections
+- group: AzureDefaults
+- group: GitHubDefaults
+- name: terraformKey
+  value: $(Build.Repository.Name)
+
+steps:
+- task: Bash@3
+  displayName: 'A simple place holder'
+  inputs:
+    targetType: inLine
+    script: echo "Hello world"
+
